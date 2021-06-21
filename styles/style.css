@@ -1,0 +1,126 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.movie-library-title {
+  width: 65%;
+  height: 25%;
+  background-size: cover;
+  background-image: url('../images/movieReel.png');
+  
+}
+
+#title {
+  position: fixed;
+  left: 47%;
+  top: 5%;
+  background-color: white;
+}
+
+
+.movie-container {
+  width:100%;
+  height:250px;
+  padding-top:2%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.movie {
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  height: 200px;
+  width: 400px;
+  border-radius: 10px;
+  border: 2px black solid;
+  /*background-color: lightblue; */
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  
+  font-size: 30px;
+}
+
+#movie-text {
+  margin-top: 0px;
+  background-color:#FFFF00;
+  border-radius: 5px;
+  border: 1px black solid;
+  padding: 5px;
+  position: absolute;
+  top: 60px;
+}
+
+#genre-label {
+  position: absolute;
+  top: -35px;
+  font-size:30px;
+  /**text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red; */
+  color: black;
+}
+
+.form-container {
+
+  width:60%;
+  color:white;
+  margin-top: 5%;
+  padding-top:2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: black;
+  font-size:20px;
+  border-radius: 30px;
+  padding: 30px;
+
+}
+select {
+  margin-right: 30px;
+  height: 40px;
+}
+
+select option{
+  font-size: 20px;
+}
+
+input[type=checkbox] {
+  margin-right: 30px;
+    transform: scale(1.5);
+}
+
+input {
+  margin-right: 30px;
+ vertical-align: middle;
+ height: 40px;
+
+}
+
+#submit {
+  height: 40px;
+  width: 120px;
+  background-color: lightgreen;
+}
+
+li {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  font-weight:bold;
+}
+
+
+
+.delete-button {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+}
