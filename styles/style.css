@@ -1,126 +1,111 @@
-.container {
+.main-container {
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-}
-
-.movie-library-title {
-  width: 65%;
-  height: 25%;
-  background-size: cover;
-  background-image: url('../images/movieReel.png');
-  
-}
-
-#title {
-  position: fixed;
-  left: 47%;
-  top: 5%;
-  background-color: white;
-}
-
-
-.movie-container {
-  width:100%;
-  height:250px;
-  padding-top:2%;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.movie {
   position: relative;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  height: 200px;
-  width: 400px;
-  border-radius: 10px;
-  border: 2px black solid;
-  /*background-color: lightblue; */
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-  
-  font-size: 30px;
-}
-
-#movie-text {
-  margin-top: 0px;
-  background-color:#FFFF00;
-  border-radius: 5px;
-  border: 1px black solid;
-  padding: 5px;
-  position: absolute;
-  top: 60px;
-}
-
-#genre-label {
-  position: absolute;
-  top: -35px;
-  font-size:30px;
-  /**text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red; */
-  color: black;
-}
-
-.form-container {
-
-  width:60%;
-  color:white;
-  margin-top: 5%;
-  padding-top:2%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: black;
-  font-size:20px;
-  border-radius: 30px;
-  padding: 30px;
-
-}
-select {
-  margin-right: 30px;
-  height: 40px;
-}
-
-select option{
-  font-size: 20px;
-}
-
-input[type=checkbox] {
-  margin-right: 30px;
-    transform: scale(1.5);
+  margin: auto;
+  background-color: rgba(225,80,97,255);
+  display:flex;
 }
 
 input {
-  margin-right: 30px;
- vertical-align: middle;
- height: 40px;
-
+  margin-top: 90%;
+  height: 2.5rem;
+  width: 10rem;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  text-align: center;
 }
 
-#submit {
-  height: 40px;
-  width: 120px;
-  background-color: lightgreen;
+.player1-container {
+  width: 25%;
+  height: auto;
+  background-image: url('https://s3.xopic.de/openwho-public/channels/7fSc4JEBeO9H0P4b8d1Cfq/logo_v1.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  align-items: center;
+  text-align:center;
 }
 
-li {
-  overflow: hidden;
+.game-container {
+  width: 50%;
+  padding-top: 50%;
   position: relative;
-  display: inline-block;
-  font-weight:bold;
+  margin: 0;
 }
 
 
+.player2-container {
+  width: 25%;
+  height: auto;
+  background-image: url('https://hapvidaplanos.com.br/wp-content/uploads/2016/06/Solucione_as_suas_16_maiores_d%C3%BAvidas_sobre_vacina%C3%A7%C3%A3o_infantil.jpg-1.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  align-items: center;
+  text-align:center;
 
-.delete-button {
-  position: absolute;
-  right: 3px;
-  top: 3px;
+  
 }
+
+.grid-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 30% 30% 30%;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.squareVirus {
+  background-image: url('https://s3.xopic.de/openwho-public/channels/7fSc4JEBeO9H0P4b8d1Cfq/logo_v1.png');
+  background-size: cover;
+}
+
+.squareVaccine {
+  background-image: url('https://hapvidaplanos.com.br/wp-content/uploads/2016/06/Solucione_as_suas_16_maiores_d%C3%BAvidas_sobre_vacina%C3%A7%C3%A3o_infantil.jpg-1.jpeg');
+  background-size: cover;
+}
+
+.square:hover{
+    background-color: white;
+    -webkit-box-shadow:
+    0px 0px 3px 3px lightblue;
+    shadow:
+    0px 0px 3px 3px lightblue;
+  
+      -webkit-animation-name: shake;
+    animation-name: shake;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.squareRed {
+  background-color: red !important;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
