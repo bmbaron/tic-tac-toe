@@ -50,6 +50,27 @@ const displayController = (() => {
   
 })();
 
+const scoreController = (() => {
+  
+  const checkForWin =(gameMoves, p1Turn)=> {
+    if(p1Turn) {
+      let counter = 0;
+      for(let i=0; i<3; i++) {
+        if(gameMoves[0][i] == 'X') {
+          counter++;
+        }
+        if(counter == 3) {
+          console.log("P1 is the winner!");
+        }
+      }
+    }
+    
+  };
+  
+  return {checkForWin};
+  
+})();
+
 
 
 const gameController = (() => {
@@ -60,9 +81,9 @@ const gameController = (() => {
   let p1Turn = false;
   
   const gameMoves = [
-    [0,0,0],
-    [0,0,0],
-    [0,0,0]
+    [1,1,1],
+    [1,1,1],
+    [1,1,1]
   ];
   
   
@@ -96,35 +117,86 @@ const gameController = (() => {
 
   const playMove = (index) => {
     if(typeof p1 === 'object' && typeof p2 === 'object') {
-      if(p1Turn)
-      {
         switch(index) {
-        case 0:
-          if (gameMoves[0][0] === 0){
-            gameMoves[0][0] = 'X';
-          }
-          break;
+          case 0:
+            if (gameMoves[0][0] === 1){
+              gameMoves[0][0] = p1Turn ? 'X' : 'O';
+              displayController.updateBoard(p1Turn, index);
+              console.log(gameMoves);
+              console.log(p1Turn);
+            }
+            break;
+          case 1:
+            if (gameMoves[0][1] === 1){
+              gameMoves[0][1] = p1Turn ? 'X' : 'O';
+              displayController.updateBoard(p1Turn, index);
+              console.log(gameMoves);
+              console.log(p1Turn);
+            }
+            break;
+          case 2:
+            if (gameMoves[0][2] === 1){
+              gameMoves[0][2] = p1Turn ? 'X' : 'O';
+              displayController.updateBoard(p1Turn, index);
+              console.log(gameMoves);
+              console.log(p1Turn);
+            }
+            break;
+          case 3:
+            if (gameMoves[1][0] === 1){
+              gameMoves[1][0] = p1Turn ? 'X' : 'O';
+              displayController.updateBoard(p1Turn, index);
+              console.log(gameMoves);
+              console.log(p1Turn);
+            }
+            break;
+          case 4:
+            if (gameMoves[1][1] === 1){
+              gameMoves[1][1] = p1Turn ? 'X' : 'O';
+              displayController.updateBoard(p1Turn, index);
+              console.log(gameMoves);
+              console.log(p1Turn);
+            }
+            break;
+          case 5:
+            if (gameMoves[1][2] === 1){
+              gameMoves[1][2] = p1Turn ? 'X' : 'O';
+              displayController.updateBoard(p1Turn, index);
+              console.log(gameMoves);
+              console.log(p1Turn);
+            }
+            break;
+          case 6:
+            if (gameMoves[2][0] === 1){
+              gameMoves[2][0] = p1Turn ? 'X' : 'O';
+              displayController.updateBoard(p1Turn, index);
+              console.log(gameMoves);
+              console.log(p1Turn);
+            }
+            break;
+          case 7:
+            if (gameMoves[2][1] === 1){
+              gameMoves[2][1] = p1Turn ? 'X' : 'O';
+              displayController.updateBoard(p1Turn, index);
+              console.log(gameMoves);
+              console.log(p1Turn);
+            }
+            break;
+          case 8:
+            if (gameMoves[2][2] === 1){
+              gameMoves[2][2] = p1Turn ? 'X' : 'O';
+              displayController.updateBoard(p1Turn, index);
+              console.log(gameMoves);
+              console.log(p1Turn);
+            }
+            break;
         }
-        displayController.updateBoard(p1Turn, index);
-        console.log(index + " was clicked by P1");
-        p1Turn = false;
+        scoreController.checkForWin(gameMoves, p1Turn);
+        p1Turn = !p1Turn;
+
       }
-      else
-      {
-        switch(index) {
-        case 0:
-          if (gameMoves[0][0] === 0){
-            gameMoves[0][0] = 'X';
-          }
-          break;
-        }
-        displayController.updateBoard(p1Turn, index);
-        console.log(index + " was clicked by P2");
-        p1Turn = true;
-      }
-    }
     else {
-      alert("please enter player names");
+      console.log("please enter player names");
     }
     
   };
