@@ -78,16 +78,17 @@ const scoreController = (() => {
           }
         }
       }
+      console.log(currentSymbol, currentWinMoves);
 
       for(let i=0; i<8; i++){
           let j = 0;
           
           if(currentWinMoves.includes(winMoves[i][j]) && currentWinMoves.includes(winMoves[i][j+1]) && currentWinMoves.includes(winMoves[i][j+2])) {
-            alert("win");
+            return true;
           }
       }
-      console.log(currentSymbol, currentWinMoves);
       currentWinMoves = [];
+      return false;
       
     // for(let i=0; i<3; i++){
       
@@ -111,6 +112,8 @@ const scoreController = (() => {
 const gameController = (() => {
   
   const statusText = document.getElementById('status-text');
+
+  
   let p1;
   let p2;
   let p1Turn = false;
@@ -121,25 +124,35 @@ const gameController = (() => {
     [1,1,1]
   ];
   
-  
   const player1 = document.getElementById('player1');
   const player2 = document.getElementById('player2');
+  const player1Submit = document.getElementById('player1-submit');
+  const player2Submit = document.getElementById('player2-submit');
   
-  player1.addEventListener("mouseenter", function() {
-    player1.style = "background-color: lightblue";
-  });
-  player1.addEventListener("mouseleave", function() {
+  // player1.addEventListener("mouseenter", function() {
+  //   player1.style = "background-color: lightblue";
+  // });
+  player1Submit.addEventListener("click", function() {
     p1 = Player(player1.value);
-    if(player2.value !== '') { p1Turn = true;}
+    this.style = "background-color: lightgreen";
+    this.value = "\u2713";
+    if(player2.value !== '') { p1Turn = true; turnMessage();}
   });
   
-  player2.addEventListener("mouseenter", function() {
-    player2.style = "background-color: lightblue";
-  });
-  player2.addEventListener("mouseleave", function() {
+  // player2.addEventListener("mouseenter", function() {
+  //   player2.style = "background-color: lightblue";
+  // });
+  player2Submit.addEventListener("click", function() {
     p2 = Player(player2.value);
-    if(player1.value !== '') { p1Turn = true;}
+    this.style = "background-color: lightgreen";
+    this.value = "\u2713";
+    if(player1.value !== '') { p1Turn = true; turnMessage();}
   });
+  
+  const getCurrentPlayer = () => {
+    let currentPlayer = p1Turn ? p1.getName() : p2.getName();
+    return currentPlayer;
+  };
   
   const turnMessage = () => {
     if(p1Turn) {
@@ -214,10 +227,14 @@ const gameController = (() => {
             }
             break;
         }
-        scoreController.checkForWin(gameMoves, p1Turn);
-        p1Turn = !p1Turn;
-        setTimeout(turnMessage, 1000);
-        
+        if(scoreController.checkForWin(gameMoves, p1Turn)) {
+          weHaveAWinner();
+          console.log("game over");
+        }
+        else {
+          p1Turn = !p1Turn;
+          setTimeout(turnMessage, 1000);
+        }
       }
     else {
       console.log("please enter player names");
@@ -225,8 +242,14 @@ const gameController = (() => {
     
   };
   
+  const weHaveAWinner = () => {
+    statusText.innerHTML = getCurrentPlayer() + " is the winner!";
+    
+  };
 
-  return {playMove};
+  
+
+  return { playMove, weHaveAWinner};
   
 })();
 

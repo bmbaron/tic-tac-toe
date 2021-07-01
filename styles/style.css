@@ -1,8 +1,18 @@
+body {
+  text-align: center;
+  margin: auto;
+  
+}
+
+.top-container {
+  height: 4%;
+}
+
 .main-container {
   width: 100%;
   position: relative;
   margin: auto;
-  background-color: rgba(225,80,97,255);
+  /*background-color: rgba(225,80,97,255);*/
   display:flex;
 }
 
@@ -15,10 +25,16 @@ input {
   text-align: center;
 }
 
+input[type=submit] {
+  border: none;
+  background-color: rgba(225,80,97,255);
+  margin-top: 5%;
+}
+
 .player1-container {
-  width: 25%;
+  width: 20%;
   height: auto;
-  background-image: url('https://s3.xopic.de/openwho-public/channels/7fSc4JEBeO9H0P4b8d1Cfq/logo_v1.png');
+  background-image: url('../images/covid.png');
   background-repeat: no-repeat;
   background-size: 100%;
   align-items: center;
@@ -26,23 +42,45 @@ input {
 }
 
 .game-container {
-  width: 50%;
-  padding-top: 50%;
+  width: 40%;
+  padding-top: 40%;
   position: relative;
   margin: 0;
 }
 
 
 .player2-container {
-  width: 25%;
+  width: 20%;
   height: auto;
-  background-image: url('https://hapvidaplanos.com.br/wp-content/uploads/2016/06/Solucione_as_suas_16_maiores_d%C3%BAvidas_sobre_vacina%C3%A7%C3%A3o_infantil.jpg-1.jpeg');
+  background-image: url('../images/vaccine.png');
   background-repeat: no-repeat;
   background-size: 100%;
   align-items: center;
   text-align:center;
+}
 
-  
+.left-container{
+  background-color: white;
+  width: 10%;
+  height: auto;
+}
+
+.right-container {
+  background-color: white;
+  width: 10%;
+  height: auto;
+}
+
+
+#status-text {
+  margin-top: 0;
+  width: 80%;
+  height: 40px;
+  font-size: 30px;
+  background-color: white;
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 .grid-container {
