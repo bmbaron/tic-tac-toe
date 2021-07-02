@@ -112,7 +112,7 @@ const scoreController = (() => {
 const gameController = (() => {
   
   const statusText = document.getElementById('status-text');
-
+  statusText.classList.add("status-text");
   
   let p1;
   let p2;
@@ -123,6 +123,8 @@ const gameController = (() => {
     [1,1,1],
     [1,1,1]
   ];
+  
+  let numberOfMoves = 0;
   
   const player1 = document.getElementById('player1');
   const player2 = document.getElementById('player2');
@@ -229,9 +231,15 @@ const gameController = (() => {
         }
         if(scoreController.checkForWin(gameMoves, p1Turn)) {
           weHaveAWinner();
-          console.log("game over");
+          setTimeout(endTheGame, 2000);
+        }
+        else if (numberOfMoves == 8) {
+          statusText.innerHTML = "It's a tie!";
+          setTimeout(endTheGame, 2000);
+          
         }
         else {
+          numberOfMoves++;
           p1Turn = !p1Turn;
           setTimeout(turnMessage, 1000);
         }
@@ -244,12 +252,18 @@ const gameController = (() => {
   
   const weHaveAWinner = () => {
     statusText.innerHTML = getCurrentPlayer() + " is the winner!";
+  };
+  
+  const endTheGame = () => {
+    statusText.classList.add("end-the-game");
+    statusText.addEventListener("click", function() {
+      location.reload();
+    });
+    statusText.innerHTML = "click to replay";
     
   };
-
   
-
-  return { playMove, weHaveAWinner};
+  return { playMove, weHaveAWinner, endTheGame};
   
 })();
 

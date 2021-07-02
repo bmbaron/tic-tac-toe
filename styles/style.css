@@ -5,7 +5,12 @@ body {
 }
 
 .top-container {
-  height: 4%;
+  height: 6%;
+}
+
+h1 {
+  font-size: 200%;
+  text-decoration: underline;
 }
 
 .main-container {
@@ -72,8 +77,8 @@ input[type=submit] {
 }
 
 
-#status-text {
-  margin-top: 0;
+.status-text {
+  margin-top: 2%;
   width: 80%;
   height: 40px;
   font-size: 30px;
@@ -82,6 +87,20 @@ input[type=submit] {
   border: none;
   background: none;
 }
+
+.end-the-game {
+  width: 25%;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+  background-color: darkgrey;
+  color: black;
+}
+
+.end-the-game:hover {
+  background-color: lightgrey;
+}
+
 
 .grid-container {
     position: absolute;
